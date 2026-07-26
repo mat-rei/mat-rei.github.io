@@ -21,6 +21,41 @@ body{
     line-height:1.6;
 }
 
+    /* NAVIGATION BAR */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 50px;
+    background: white;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+
+/* Logo */
+nav .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+nav .logo img {
+    height: 70px; /* adjust size as needed */
+    width: auto;
+}
+
+    nav a {
+        margin-right: 20px;
+        text-decoration: none;
+        color: #333;
+        font-size: 18px;
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+    }
+
 /* ---------- HERO ---------- */
 
 .hero{
