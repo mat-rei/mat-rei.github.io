@@ -1,227 +1,345 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About Us</title>
-  <style>
-    :root{
-      --bg:#f7f7f8;
-      --card:#ffffff;
-      --accent:#0a66c2;
-      --text:#222;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background:var(--bg);
-      color:var(--text);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      min-height:100vh;
-      padding:24px;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Providence Mathematical Initiative</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+        --paper: #F7F6F1;
+        --ink: #1B1B1B;
+        --ink-soft: #55524B;
+        --blue: #22406B;
+        --sage: #5F7A63;
+        --rule: #D9D5C9;
     }
 
-        /* NAVIGATION BAR */
+    * {
+        box-sizing: border-box;
+    }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 50px;
-    background: white;
-    border-bottom: 1px solid #ddd;
-    position: relative;
-}
+    body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Source Serif 4", Georgia, serif;
+        -webkit-font-smoothing: antialiased;
+    }
 
-/* Logo */
-nav .logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
+    a {
+        color: inherit;
+    }
 
-nav .logo img {
-    height: 70px; /* adjust size as needed */
-    width: auto;
-}
+    a:focus-visible,
+    button:focus-visible {
+        outline: 2px solid var(--blue);
+        outline-offset: 3px;
+    }
 
-    nav a {
-        margin-right: 20px;
+    /* ================= NAVIGATION ================= */
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 28px 48px;
+        border-bottom: 1px solid var(--rule);
+        max-width: 1180px;
+        margin: 0 auto;
+    }
+
+    nav .wordmark {
+        font-family: "Source Serif 4", serif;
+        font-size: 19px;
+        font-weight: 600;
         text-decoration: none;
-        color: #333;
-        font-size: 18px;
+        letter-spacing: 0.01em;
+        white-space: nowrap;
     }
 
-    nav a:hover {
-        text-decoration: underline;
-    }
-
-    .card{
-      background:var(--card);
-      border-radius:12px;
-      box-shadow:0 6px 20px rgba(0,0,0,0.06);
-      padding:28px;
-      max-width:520px;
-      width:100%;
-      text-align:center;
-    }
-
-    .card p {
-  text-align: justify;
-    }
-    .back {
-      display: inline-block;
-      margin-bottom: 16px;
-      text-decoration: none;
-      font-weight: 600;
-      color: var(--accent);
-    }
-    .back:hover { text-decoration: underline; }
-    h1{font-size:1.4rem;margin:0 0 12px}
-    p{line-height:1.5;color:#444}
-
-    /* For tablets and small laptops */
-@media (max-width: 992px) {
-    nav {
-        padding: 15px 20px;
-    }
-    .cards {
-        grid-template-columns: repeat(2, 1fr); 
-        padding: 0 20px 40px;
-    }
-}
-
-/* For mobile phones */
-@media (max-width: 600px) {
-
-    /* NAVIGATION becomes stacked */
-    nav {
-        flex-direction: column;
-        padding: 10px 0;
-        text-align: center;
-    }
-
-    nav .left, 
-    nav .right {
+    nav .links {
         display: flex;
-        gap: 15px;
-        margin: 5px 0;
+        gap: 32px;
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 14.5px;
     }
 
-    nav .logo {
-        position: static;
-        transform: none;
-        margin: 10px 0;
+    nav .links a {
+        text-decoration: none;
+        color: var(--ink-soft);
+        padding-bottom: 3px;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.15s ease, color 0.15s ease;
     }
 
-    nav a {
-        font-size: 16px;
-        margin-right: 0;
+    nav .links a:hover {
+        color: var(--ink);
+        border-bottom-color: var(--ink);
     }
 
-    /* TITLE */
-    .title {
-        padding: 25px 0 10px;
-        font-size: 24px;
-        margin: 0 10px;
+    nav .links a.active {
+        color: var(--ink);
+        border-bottom-color: var(--blue);
     }
 
-    /* Paragraph description */
-    .description {
-        margin: 0 15px;
+    /* ================= HERO ================= */
+
+    header.hero {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 88px 48px 64px;
+        border-bottom: 1px solid var(--rule);
+    }
+
+    header.hero .kicker {
+        font-family: "IBM Plex Sans", sans-serif;
         font-size: 14px;
+        color: var(--sage);
+        margin: 0 0 18px;
     }
 
-    /* Section title spacing */
-    .section-title {
-        font-size: 24px;
-        margin-left: 15px;
-        margin-top: 30px;
+    header.hero h1 {
+        font-size: 44px;
+        line-height: 1.15;
+        font-weight: 500;
+        margin: 0 0 22px;
+        max-width: 15ch;
     }
 
-    /* CARDS become 1-column */
-    .cards {
-        grid-template-columns: 1fr;
-        gap: 15px;
-        padding: 0 15px 40px;
+    header.hero p {
+        font-size: 19px;
+        line-height: 1.6;
+        color: var(--ink-soft);
+        max-width: 60ch;
+        margin: 0;
     }
 
-    .card {
-        font-size: 18px;
-        padding: 15px;
-        text-align: left;
+    /* ================= SECTION ================= */
+
+    main {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 48px;
     }
 
-    .card small {
-        font-size: 14px;
-    }
-
-    /* Video container full width */
-    .video-container {
-        width: 100%;
-        margin-left: 0;
-    }
-}
-
-    /* For tablets and small laptops */
-@media (max-width: 992px) {
-    nav {
-        padding: 15px 20px;
-    }
-    .cards {
-        grid-template-columns: repeat(2, 1fr); 
-        padding: 0 20px 40px;
-    }
-}
-
-/* For mobile phones */
-@media (max-width: 600px) {
-
-    /* NAVIGATION becomes stacked */
-    nav {
-        flex-direction: column;
-        padding: 10px 0;
-        text-align: center;
-    }
-
-    nav .left, 
-    nav .right {
+    .section-heading {
         display: flex;
-        gap: 15px;
-        margin: 5px 0;
+        align-items: baseline;
+        justify-content: space-between;
+        padding: 56px 0 28px;
     }
 
-    nav .logo {
-        position: static;
-        transform: none;
-        margin: 10px 0;
+    .section-heading h2 {
+        font-size: 22px;
+        font-weight: 600;
+        margin: 0;
     }
 
-    nav a {
-        font-size: 16px;
-        margin-right: 0;
+    .section-heading span {
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 13.5px;
+        color: var(--ink-soft);
     }
 
+    /* List — journal table-of-contents style, shared with homepage */
 
+    .item-list {
+        border-top: 1px solid var(--rule);
+        margin-bottom: 80px;
+    }
 
-}
+    .item-row {
+        display: grid;
+        grid-template-columns: 48px 1fr;
+        align-items: start;
+        gap: 24px;
+        padding: 30px 4px;
+        border-bottom: 1px solid var(--rule);
+    }
 
-  </style>
+    .item-row .index {
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 14px;
+        color: var(--ink-soft);
+        padding-top: 3px;
+    }
+
+    .item-row .content h3 {
+        margin: 0 0 8px;
+        font-size: 21px;
+        font-weight: 500;
+    }
+
+    .item-row .content p {
+        margin: 0;
+        font-size: 15.5px;
+        color: var(--ink-soft);
+        max-width: 66ch;
+        line-height: 1.55;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+        border-top: 1px solid var(--rule);
+        padding: 32px 48px 48px;
+        max-width: 1180px;
+        margin: 0 auto;
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 13.5px;
+        color: var(--ink-soft);
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 720px) {
+        nav {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 22px 24px;
+        }
+
+        nav .links {
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        header.hero {
+            padding: 56px 24px 44px;
+        }
+
+        header.hero h1 {
+            font-size: 32px;
+            max-width: none;
+        }
+
+        header.hero p {
+            font-size: 17px;
+        }
+
+        main {
+            padding: 0 24px;
+        }
+
+        .section-heading {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+            padding: 44px 0 22px;
+        }
+
+        .item-list {
+            margin-bottom: 44px;
+        }
+
+        .item-row {
+            grid-template-columns: 32px 1fr;
+            gap: 14px;
+            padding: 24px 2px;
+        }
+
+        .item-row .content h3 {
+            font-size: 19px;
+        }
+
+        footer {
+            padding: 28px 24px 40px;
+            flex-direction: column;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        * {
+            transition: none !important;
+        }
+    }
+</style>
 </head>
 <body>
 
-  
-  <main class="card">
-    <a class="back" href="index.html">← Back to home</a>
-    <h1>About Us</h1>
-    <p>We contribute in mathematical research and education. Our research areas are currently in applied mathematics: infectious disease modelling, applications of nonlinear partial differential equations (typically for water wave modelling), and neural network applications (currently for infectious disease inference).</p>
-    <p>Currently, our non-profit activity includes: 1. Education of Mathematical Olympiad to young Indonesian students (with minimum or no experience in math olympiad) to increase competitiveness and encourage achievements.</p>
-  </main>
+<nav>
+    <a class="wordmark" href="index.html">Providence Mathematical Initiative</a>
+    <div class="links">
+        <a class="active" href="about.html">About</a>
+        <a href="matholym.html">Math Olympiad Training</a>
+        <a href="online_class_page.html">Online Class</a>
+        <a href="contact_page.html">Research Contributors</a>
+    </div>
+</nav>
+
+<header class="hero">
+    <p class="kicker">About the initiative</p>
+    <h1>Who we are.</h1>
+    <p>We contribute to mathematical research and education. Our research sits in applied mathematics — infectious disease modelling, nonlinear partial differential equations, and neural network applications — alongside a non-profit commitment to mathematics education in Indonesia.</p>
+</header>
+
+<main>
+
+    <div class="section-heading">
+        <h2>Research Areas</h2>
+        <span>Where our work is focused</span>
+    </div>
+
+    <div class="item-list">
+
+        <div class="item-row">
+            <span class="index">01</span>
+            <span class="content">
+                <h3>Infectious Disease Modelling</h3>
+                <p>Mathematical modelling of infectious diseases, from transmission dynamics to inference about how an outbreak is likely to unfold.</p>
+            </span>
+        </div>
+
+        <div class="item-row">
+            <span class="index">02</span>
+            <span class="content">
+                <h3>Nonlinear PDEs</h3>
+                <p>Applications of nonlinear partial differential equations, typically in the modelling of water waves.</p>
+            </span>
+        </div>
+
+        <div class="item-row">
+            <span class="index">03</span>
+            <span class="content">
+                <h3>Neural Network Applications</h3>
+                <p>Applications of neural networks, currently focused on inference problems in infectious disease modelling.</p>
+            </span>
+        </div>
+
+    </div>
+
+    <div class="section-heading">
+        <h2>Non-Profit Activity</h2>
+        <span>Education &amp; outreach</span>
+    </div>
+
+    <div class="item-list">
+
+        <div class="item-row">
+            <span class="index">01</span>
+            <span class="content">
+                <h3>Math Olympiad Education</h3>
+                <p>We teach Mathematical Olympiad training to young Indonesian students, including those with minimal or no prior olympiad experience, to build competitiveness and encourage achievement.</p>
+            </span>
+        </div>
+
+    </div>
+
+</main>
+
+<footer>
+    <span>Providence Mathematical Initiative</span>
+    <span>Proliferating mathematics</span>
+</footer>
+
 </body>
 </html>
-
-
-
