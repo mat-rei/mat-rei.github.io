@@ -1,201 +1,372 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contributors</title>
-  <style>
-    :root{
-      --bg:#f7f7f8;
-      --card:#ffffff;
-      --accent:#0a66c2; /* LinkedIn blue */
-      --text:#222;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background:var(--bg);
-      color:var(--text);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      min-height:100vh;
-      padding:24px;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research Contributors — Providence Mathematical Initiative</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+        --paper: #F7F6F1;
+        --ink: #1B1B1B;
+        --ink-soft: #55524B;
+        --blue: #2F63D6;
+        --sage: #5F7A63;
+        --rule: #D9D5C9;
     }
 
-    .title {
-        text-align: center;
-        padding: 40px 0 20px;
-        font-size: 20px;
-        font-weight: bold;
-        font-family: "Helvetica";
+    * {
+        box-sizing: border-box;
     }
-    .card{
-      background:var(--card);
-      border-radius:12px;
-      box-shadow:0 6px 20px rgba(0,0,0,0.06);
-      padding:28px;
-      max-width:520px;
-      width:100%;
-      text-align:center;
+
+    body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Source Serif 4", Georgia, serif;
+        -webkit-font-smoothing: antialiased;
     }
-    .photo{
-      width:140px;
-      height:140px;
-      object-fit:cover;
-      border-radius:50%;
-      display:block;
-      margin:0 auto 18px;
-      border:4px solid rgba(10,102,194,0.08);
+
+    a {
+        color: inherit;
     }
-    h1{font-size:1.4rem;margin:0 0 6px}
-    p.description{margin:0 0 14px;line-height:1.45;color:#444}
-    .links{
-      display:flex;
-      gap:10px;
-      justify-content:center;
-      margin-top:10px;
-      flex-wrap:wrap;
+
+    a:focus-visible,
+    button:focus-visible {
+        outline: 2px solid var(--blue);
+        outline-offset: 3px;
     }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 12px;
-      border-radius:8px;
-      text-decoration:none;
-      font-weight:600;
-      border:1px solid rgba(0,0,0,0.06);
-    }
-    .btn-linkedin{color:var(--accent)}
-    .btn-email{color:#0b7a3f}
-    .muted{font-size:0.85rem;color:#666;margin-top:12px}
-    /* small screens: shrink photo */
-    @media (max-width:420px){
-      .photo{width:110px;height:110px}
-      .card{padding:20px}
-    }
-    /* For tablets and small laptops */
-@media (max-width: 992px) {
+
+    /* ================= NAVIGATION ================= */
+
     nav {
-        padding: 15px 20px;
-    }
-    .cards {
-        grid-template-columns: repeat(2, 1fr); 
-        padding: 0 20px 40px;
-    }
-}
-
-/* For mobile phones */
-@media (max-width: 600px) {
-
-    /* NAVIGATION becomes stacked */
-    nav {
-        flex-direction: column;
-        padding: 10px 0;
-        text-align: center;
-    }
-
-    nav .left, 
-    nav .right {
         display: flex;
-        gap: 15px;
-        margin: 5px 0;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 28px 48px;
+        border-bottom: 1px solid var(--rule);
+        max-width: 1180px;
+        margin: 0 auto;
     }
 
-    nav .logo {
-        position: static;
-        transform: none;
-        margin: 10px 0;
+    nav .wordmark {
+        font-family: "Source Serif 4", serif;
+        font-size: 19px;
+        font-weight: 600;
+        text-decoration: none;
+        letter-spacing: 0.01em;
+        white-space: nowrap;
+        color: var(--blue);
     }
 
-    nav a {
-        font-size: 16px;
-        margin-right: 0;
+    nav .links {
+        display: flex;
+        gap: 32px;
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 14.5px;
     }
 
-    /* TITLE */
-    .title {
-        padding: 25px 0 10px;
-        font-size: 24px;
-        margin: 0 10px;
+    nav .links a {
+        text-decoration: none;
+        color: var(--ink-soft);
+        padding-bottom: 3px;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.15s ease, color 0.15s ease;
     }
 
-    /* Paragraph description */
-    .description {
-        margin: 0 15px;
+    nav .links a:hover {
+        color: var(--ink);
+        border-bottom-color: var(--ink);
+    }
+
+    nav .links a.active {
+        color: var(--ink);
+        border-bottom-color: var(--blue);
+    }
+
+    /* ================= HERO ================= */
+
+    header.hero {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 88px 48px 64px;
+        border-bottom: 1px solid var(--rule);
+    }
+
+    header.hero .kicker {
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 14px;
+        color: var(--sage);
+        margin: 0 0 18px;
+    }
+
+    header.hero h1 {
+        font-size: 44px;
+        line-height: 1.15;
+        font-weight: 500;
+        margin: 0 0 22px;
+        max-width: 18ch;
+    }
+
+    header.hero p {
+        font-size: 19px;
+        line-height: 1.6;
+        color: var(--ink-soft);
+        max-width: 56ch;
+        margin: 0;
+    }
+
+    /* ================= SECTION ================= */
+
+    main {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 48px;
+    }
+
+    .section-heading {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        padding: 56px 0 28px;
+    }
+
+    .section-heading h2 {
+        font-size: 22px;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .section-heading span {
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 13.5px;
+        color: var(--ink-soft);
+    }
+
+    /* ================= CONTRIBUTOR LIST ================= */
+    /* To add a new contributor, copy one .contributor block and edit its contents. */
+
+    .contributor-list {
+        border-top: 1px solid var(--rule);
+        margin-bottom: 80px;
+    }
+
+    .contributor {
+        display: grid;
+        grid-template-columns: 92px 1fr;
+        gap: 28px;
+        align-items: start;
+        padding: 32px 4px;
+        border-bottom: 1px solid var(--rule);
+    }
+
+    .contributor .photo {
+        width: 88px;
+        height: 88px;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+        border: 1px solid var(--rule);
+    }
+
+    .contributor .info h3 {
+        margin: 0 0 6px;
+        font-size: 21px;
+        font-weight: 500;
+    }
+
+    .contributor .info .role {
+        margin: 0 0 14px;
+        font-size: 15px;
+        color: var(--ink-soft);
+        line-height: 1.55;
+        max-width: 62ch;
+    }
+
+    .contributor .links {
+        display: flex;
+        gap: 20px;
+        font-family: "IBM Plex Sans", sans-serif;
         font-size: 14px;
     }
 
-    /* Section title spacing */
-    .section-title {
-        font-size: 24px;
-        margin-left: 15px;
-        margin-top: 30px;
+    .contributor .links a {
+        text-decoration: none;
+        color: var(--blue);
+        padding-bottom: 2px;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.15s ease;
     }
 
-    /* CARDS become 1-column */
-    .cards {
-        grid-template-columns: 1fr;
-        gap: 15px;
-        padding: 0 15px 40px;
+    .contributor .links a:hover {
+        border-bottom-color: var(--blue);
     }
 
-    .card {
-        font-size: 18px;
-        padding: 15px;
+    /* ================= FOOTER ================= */
+
+    footer {
+        border-top: 1px solid var(--rule);
+        padding: 32px 48px 48px;
+        max-width: 1180px;
+        margin: 0 auto;
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 13.5px;
+        color: var(--ink-soft);
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
     }
 
-    .card small {
-        font-size: 14px;
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 720px) {
+        nav {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 22px 24px;
+        }
+
+        nav .links {
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        header.hero {
+            padding: 56px 24px 44px;
+        }
+
+        header.hero h1 {
+            font-size: 32px;
+            max-width: none;
+        }
+
+        header.hero p {
+            font-size: 17px;
+        }
+
+        main {
+            padding: 0 24px;
+        }
+
+        .section-heading {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+            padding: 44px 0 22px;
+        }
+
+        .contributor-list {
+            margin-bottom: 44px;
+        }
+
+        .contributor {
+            grid-template-columns: 64px 1fr;
+            gap: 16px;
+            padding: 24px 2px;
+        }
+
+        .contributor .photo {
+            width: 60px;
+            height: 60px;
+        }
+
+        .contributor .info h3 {
+            font-size: 19px;
+        }
+
+        footer {
+            padding: 28px 24px 40px;
+            flex-direction: column;
+        }
     }
 
-    /* Video container full width */
-    .video-container {
-        width: 100%;
-        margin-left: 0;
+    @media (prefers-reduced-motion: reduce) {
+        * {
+            transition: none !important;
+            animation: none !important;
+        }
     }
-}
-  </style>
+</style>
 </head>
 <body>
-  <div class="container">
-    <a class="back" href="index.html" style="display:inline-block;margin-bottom:16px;text-decoration:none;font-weight:600;color:#0a66c2;">← Back to main page</a>
-    
-  <div class="title">
-   Main researchers:
-  </div>
-    <!-- Person 1 -->
-    <main class="card" role="main">
-      <img class="photo" src="photo_ariefanbiya.png" alt="Photo of Person 1">
-      <h1>Arief Anbiya</h1>
-      <p class="description">E-mail: ariefanbiya@gmail.com</p>
-      <div class="links">
-        <a class="btn btn-linkedin" href="https://www.linkedin.com/in/arief-anbiya-b0027575/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a class="btn btn-email" href="mailto:ariefanbiya@gmail.com">Email</a>
-      </div>
-    </main>
 
-<!--  <div class="title">
-   Research collaborators:
-  </div>
-    <main class="card" role="main">
-      <img class="photo" src="nophoto.png" alt="Photo of Person 2">
-      <h1>Benny Yong, Ph.D</h1>
-      <p class="description">Center for Mathematics and Society, Department of Mathematics, Parahyangan Catholic University.</p>
-      <div class="links">
-        <a class="btn btn-email" href="mailto:benny_y@unpar.ac.id">Email</a>
-      </div>
-    </main>
+<nav>
+    <a class="wordmark" href="index.html">Providence Mathematical Initiative</a>
+    <div class="links">
+        <a href="about.html">About</a>
+        <a href="matholym.html">Math Olympiad Training</a>
+        <a href="online_class_page.html">Online Class</a>
+        <a class="active" href="contact_page.html">Research Contributors</a>
+    </div>
+</nav>
+
+<header class="hero">
+    <p class="kicker">The people behind the work</p>
+    <h1>Research Contributors.</h1>
+    <p>The researchers and collaborators contributing to our work in mathematical modelling and education.</p>
+</header>
+
+<main>
+
+    <div class="section-heading">
+        <h2>Main Researchers</h2>
+        <span>Leading the initiative's research</span>
+    </div>
+
+    <div class="contributor-list">
+
+        <!--
+            CONTRIBUTOR TEMPLATE — copy everything from <div class="contributor"> to
+            </div> (inclusive) and edit the photo, name, role, and links to add
+            someone new. Omit the LinkedIn <a> entirely if a person has none.
+        -->
+        <div class="contributor">
+            <img class="photo" src="photo_ariefanbiya.png" alt="Photo of Arief Anbiya">
+            <div class="info">
+                <h3>Arief Anbiya</h3>
+                <p class="role">ariefanbiya@gmail.com</p>
+                <div class="links">
+                    <a href="https://www.linkedin.com/in/arief-anbiya-b0027575/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:ariefanbiya@gmail.com">Email</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--
+    <div class="section-heading">
+        <h2>Research Collaborators</h2>
+        <span>Working with us on specific projects</span>
+    </div>
+
+    <div class="contributor-list">
+
+        <div class="contributor">
+            <img class="photo" src="nophoto.png" alt="Photo of Benny Yong">
+            <div class="info">
+                <h3>Benny Yong, Ph.D</h3>
+                <p class="role">Center for Mathematics and Society, Department of Mathematics, Parahyangan Catholic University.</p>
+                <div class="links">
+                    <a href="mailto:benny_y@unpar.ac.id">Email</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
     -->
-  </div>
+
+</main>
+
+<footer>
+    <span>Providence Mathematical Initiative</span>
+    <span>Proliferating mathematics</span>
+</footer>
+
 </body>
 </html>
-
-
-
-
-
-
-
