@@ -84,10 +84,47 @@
     /* ================= HERO ================= */
 
     header.hero {
+        position: relative;
         max-width: 1180px;
         margin: 0 auto;
         padding: 88px 48px 64px;
         border-bottom: 1px solid var(--rule);
+        overflow: hidden;
+    }
+
+    header.hero .network {
+        position: absolute;
+        top: -8%;
+        right: -4%;
+        width: 50%;
+        height: 125%;
+        opacity: 1;
+        pointer-events: none;
+    }
+
+    header.hero .network circle {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: node-pulse 3.2s ease-in-out infinite;
+    }
+
+    header.hero .network .edge-active {
+        stroke-dasharray: 7 7;
+        animation: edge-flow 2.4s linear infinite;
+    }
+
+    @keyframes node-pulse {
+        0%, 100% { transform: scale(1); opacity: 0.9; }
+        50% { transform: scale(1.3); opacity: 1; }
+    }
+
+    @keyframes edge-flow {
+        to { stroke-dashoffset: -28; }
+    }
+
+    header.hero .text {
+        position: relative;
+        max-width: 62ch;
     }
 
     header.hero .kicker {
@@ -138,6 +175,68 @@
         font-family: "IBM Plex Sans", sans-serif;
         font-size: 13.5px;
         color: var(--ink-soft);
+    }
+
+    /* Online Tutoring — editorial panel, distinct from the research list */
+
+    .tutoring-panel {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr;
+        gap: 56px;
+        border: 1px solid var(--rule);
+        padding: 48px;
+        margin-bottom: 12px;
+    }
+
+    .tutoring-panel h3 {
+        font-size: 25px;
+        font-weight: 500;
+        margin: 0 0 16px;
+    }
+
+    .tutoring-panel .lede {
+        font-size: 16.5px;
+        line-height: 1.65;
+        color: var(--ink-soft);
+        max-width: 54ch;
+        margin: 0 0 26px;
+    }
+
+    .tutoring-cta {
+        display: inline-block;
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 14.5px;
+        font-weight: 500;
+        color: #fff;
+        background: var(--blue);
+        text-decoration: none;
+        padding: 12px 22px;
+        border-radius: 2px;
+        transition: background 0.15s ease;
+    }
+
+    .tutoring-cta:hover {
+        background: #1a3255;
+    }
+
+    .tutoring-features {
+        border-top: 1px solid var(--rule);
+    }
+
+    .tutoring-features div {
+        padding: 18px 0;
+        border-bottom: 1px solid var(--rule);
+        font-size: 15px;
+        color: var(--ink-soft);
+    }
+
+    .tutoring-features strong {
+        display: block;
+        font-family: "Source Serif 4", serif;
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--ink);
+        margin-bottom: 4px;
     }
 
     /* Research list — journal table-of-contents style */
@@ -241,8 +340,37 @@
             font-size: 17px;
         }
 
+        header.hero .network {
+            width: 50%;
+            height: 55%;
+            top: -4%;
+            opacity: 0.5;
+            right: -14%;
+        }
+
         main {
             padding: 0 24px;
+        }
+
+        .section-heading {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+            padding: 44px 0 22px;
+        }
+
+        .research-list {
+            margin-bottom: 44px;
+        }
+
+        .tutoring-panel {
+            grid-template-columns: 1fr;
+            gap: 28px;
+            padding: 28px 24px;
+        }
+
+        .tutoring-panel h3 {
+            font-size: 22px;
         }
 
         .research-row {
@@ -264,6 +392,7 @@
     @media (prefers-reduced-motion: reduce) {
         * {
             transition: none !important;
+            animation: none !important;
         }
     }
 </style>
@@ -281,12 +410,64 @@
 </nav>
 
 <header class="hero">
-    <p class="kicker">Applied &amp; theoretical mathematics</p>
-    <h1>Mathematics in service of open questions.</h1>
-    <p>We study problems in disease dynamics, partial differential equations, and learning systems — building models that clarify how complex systems behave, and training the next generation of problem-solvers to do the same.</p>
+    <svg class="network" viewBox="0 0 400 480" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="60" x2="180" y2="130" stroke="#C9C4B4" stroke-width="2.5"/>
+        <line x1="180" y1="130" x2="120" y2="230" stroke="#C9C4B4" stroke-width="2.5"/>
+        <line x1="180" y1="130" x2="300" y2="110" stroke="#22406B" stroke-width="2.5" class="edge-active" style="animation-delay:0s"/>
+        <line x1="300" y1="110" x2="330" y2="220" stroke="#22406B" stroke-width="2.5" class="edge-active" style="animation-delay:0.3s"/>
+        <line x1="120" y1="230" x2="220" y2="300" stroke="#C9C4B4" stroke-width="2.5"/>
+        <line x1="330" y1="220" x2="220" y2="300" stroke="#22406B" stroke-width="2.5" class="edge-active" style="animation-delay:0.6s"/>
+        <line x1="220" y1="300" x2="160" y2="400" stroke="#C9C4B4" stroke-width="2.5"/>
+        <line x1="220" y1="300" x2="300" y2="390" stroke="#22406B" stroke-width="2.5" class="edge-active" style="animation-delay:0.9s"/>
+        <line x1="60" y1="60" x2="120" y2="230" stroke="#C9C4B4" stroke-width="2.5"/>
+        <line x1="300" y1="390" x2="340" y2="460" stroke="#C9C4B4" stroke-width="2.5"/>
+
+        <circle cx="60" cy="60" r="8" fill="#55524B" style="animation-delay:0s"/>
+        <circle cx="180" cy="130" r="8" fill="#55524B" style="animation-delay:0.2s"/>
+        <circle cx="300" cy="110" r="8" fill="#22406B" style="animation-delay:0.4s"/>
+        <circle cx="120" cy="230" r="8" fill="#55524B" style="animation-delay:0.5s"/>
+        <circle cx="330" cy="220" r="8" fill="#22406B" style="animation-delay:0.7s"/>
+        <circle cx="220" cy="300" r="8" fill="#22406B" style="animation-delay:0.9s"/>
+        <circle cx="160" cy="400" r="8" fill="#55524B" style="animation-delay:1.1s"/>
+        <circle cx="300" cy="390" r="8" fill="#22406B" style="animation-delay:1.2s"/>
+        <circle cx="340" cy="460" r="8" fill="#55524B" style="animation-delay:1.4s"/>
+    </svg>
+
+    <div class="text">
+        <p class="kicker">Applied &amp; theoretical mathematics</p>
+        <h1>Mathematics in service of open questions.</h1>
+        <p>We study problems in disease dynamics, partial differential equations, and learning systems — building models that clarify how complex systems behave, and training the next generation of problem-solvers to do the same.</p>
+    </div>
 </header>
 
 <main>
+
+    <div class="section-heading">
+        <h2>Online Math Tutoring</h2>
+        <span>Personalized instruction, one session at a time</span>
+    </div>
+
+    <div class="tutoring-panel">
+        <div>
+            <h3>Steady, one-on-one support in mathematics.</h3>
+            <p class="lede">Alongside our research, we run a small online tutoring practice for students who want focused, personalized guidance — from foundational algebra through olympiad-level problem solving.</p>
+            <a class="tutoring-cta" href="online_class_page.html">Explore the online class</a>
+        </div>
+        <div class="tutoring-features">
+            <div>
+                <strong>One-on-one or small group</strong>
+                Sessions built around how each student learns best.
+            </div>
+            <div>
+                <strong>Any level, any goal</strong>
+                From classroom fundamentals to competition preparation.
+            </div>
+            <div>
+                <strong>Flexible scheduling</strong>
+                Weekly sessions arranged across time zones.
+            </div>
+        </div>
+    </div>
 
     <div class="section-heading">
         <h2>Our Investigation</h2>
