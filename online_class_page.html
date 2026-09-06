@@ -3,352 +3,409 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Mathematics Programmes</title>
+<title>Mathematics Programmes — Providence Mathematical Initiative</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#f4f4f4;
-    color:#222;
-    line-height:1.6;
-}
-
-    /* NAVIGATION BAR */
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 50px;
-    background: white;
-    border-bottom: 1px solid #ddd;
-    position: relative;
-}
-
-/* Logo */
-nav .logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-nav .logo img {
-    height: 70px; /* adjust size as needed */
-    width: auto;
-}
-
-    nav a {
-        margin-right: 20px;
-        text-decoration: none;
-        color: #333;
-        font-size: 18px;
+    :root {
+        --paper: #F7F6F1;
+        --ink: #1B1B1B;
+        --ink-soft: #55524B;
+        --blue: #2F63D6;
+        --sage: #5F7A63;
+        --rule: #D9D5C9;
     }
 
-    nav a:hover {
-        text-decoration: underline;
+    * {
+        box-sizing: border-box;
     }
 
-/* ---------- HERO ---------- */
+    body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Source Serif 4", Georgia, serif;
+        -webkit-font-smoothing: antialiased;
+    }
 
-.hero{
+    a {
+        color: inherit;
+    }
 
-    text-align:center;
-    padding:90px 20px 80px;
-    background:white;
-}
+    a:focus-visible,
+    button:focus-visible {
+        outline: 2px solid var(--blue);
+        outline-offset: 3px;
+    }
 
-.hero h1{
+    /* ================= NAVIGATION ================= */
 
-    font-size:48px;
-    font-weight:700;
-    margin-bottom:18px;
-}
-
-.hero p{
-
-    max-width:700px;
-    margin:auto;
-    color:#222;
-    font-size:19px;
-}
-
-/* ---------- PROGRAM ---------- */
-
-.container{
-
-    width:90%;
-    max-width:1100px;
-    margin:auto;
-    padding-bottom:70px;
-}
-
-.card{
-
-    background:white;
-    border-radius:18px;
-    overflow:hidden;
-    margin-bottom:60px;
-
-    box-shadow:0 8px 30px rgba(0,0,0,0.07);
-
-}
-
-.card img{
-
-    width:100%;
-    height:340px;
-    object-fit:cover;
-    display:block;
-}
-
-.content{
-
-    padding:40px;
-}
-
-.content h2{
-
-    font-size:34px;
-    margin-bottom:15px;
-}
-
-.content p{
-
-    color:#555;
-    margin-bottom:24px;
-    font-size:18px;
-}
-
-ul{
-
-    margin-left:20px;
-    color:#555;
-}
-
-li{
-
-    margin-bottom:10px;
-}
-
-.price{
-
-    margin-top:30px;
-    font-size:22px;
-    font-weight:bold;
-}
-
-.button{
-
-    display:inline-block;
-    margin-top:30px;
-    text-decoration:none;
-    color:white;
-    background:#111;
-    padding:14px 28px;
-    border-radius:8px;
-    transition:.25s;
-}
-
-.button:hover{
-
-    background:#444;
-}
-
-/* ---------- FOOTER ---------- */
-
-footer{
-
-    text-align:center;
-    padding:50px;
-    color:#777;
-}
-
-@media(max-width:768px){
-
-.hero h1{
-
-font-size:36px;
-
-}
-
-.content{
-
-padding:30px;
-
-}
-
-.content h2{
-
-font-size:28px;
-
-}
-
-}
-
-/* For tablets and small laptops */
-@media (max-width: 992px) {
     nav {
-        padding: 15px 20px;
-    }
-    .cards {
-        grid-template-columns: repeat(2, 1fr); 
-        padding: 0 20px 40px;
-    }
-}
-
-/* For mobile phones */
-@media (max-width: 600px) {
-
-    /* NAVIGATION becomes stacked */
-    nav {
-        flex-direction: column;
-        padding: 10px 0;
-        text-align: center;
-    }
-
-    nav .left, 
-    nav .right {
         display: flex;
-        gap: 15px;
-        margin: 5px 0;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 28px 48px;
+        border-bottom: 1px solid var(--rule);
+        max-width: 1180px;
+        margin: 0 auto;
     }
 
-    nav .logo {
-        position: static;
-        transform: none;
-        margin: 10px 0;
+    nav .wordmark {
+        font-family: "Source Serif 4", serif;
+        font-size: 19px;
+        font-weight: 600;
+        text-decoration: none;
+        letter-spacing: 0.01em;
+        white-space: nowrap;
+        color: var(--blue);
     }
 
-    nav a {
-        font-size: 16px;
-        margin-right: 0;
+    nav .links {
+        display: flex;
+        gap: 32px;
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 14.5px;
     }
 
+    nav .links a {
+        text-decoration: none;
+        color: var(--ink-soft);
+        padding-bottom: 3px;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.15s ease, color 0.15s ease;
+    }
 
+    nav .links a:hover {
+        color: var(--ink);
+        border-bottom-color: var(--ink);
+    }
 
-}
+    nav .links a.active {
+        color: var(--ink);
+        border-bottom-color: var(--blue);
+    }
 
+    /* ================= HERO ================= */
 
+    header.hero {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 88px 48px 64px;
+        border-bottom: 1px solid var(--rule);
+    }
+
+    header.hero .kicker {
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 14px;
+        color: var(--sage);
+        margin: 0 0 18px;
+    }
+
+    header.hero h1 {
+        font-size: 44px;
+        line-height: 1.15;
+        font-weight: 500;
+        margin: 0 0 22px;
+        max-width: 18ch;
+    }
+
+    header.hero p {
+        font-size: 19px;
+        line-height: 1.6;
+        color: var(--ink-soft);
+        max-width: 56ch;
+        margin: 0;
+    }
+
+    /* ================= SECTION ================= */
+
+    main {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 48px;
+    }
+
+    .section-heading {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        padding: 56px 0 28px;
+    }
+
+    .section-heading h2 {
+        font-size: 22px;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .section-heading span {
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 13.5px;
+        color: var(--ink-soft);
+    }
+
+    /* ================= PROGRAMME PANELS ================= */
+
+    .programmes {
+        padding-bottom: 20px;
+    }
+
+    .programme {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 56px;
+        border: 1px solid var(--rule);
+        padding: 48px;
+        margin-bottom: 40px;
+    }
+
+    .programme h3 {
+        font-size: 27px;
+        font-weight: 500;
+        margin: 0 0 16px;
+    }
+
+    .programme .lede {
+        font-size: 16.5px;
+        line-height: 1.65;
+        color: var(--ink-soft);
+        max-width: 50ch;
+        margin: 0 0 26px;
+    }
+
+    .programme .features {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .programme .features li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 12px;
+        font-size: 15px;
+        color: var(--ink-soft);
+        line-height: 1.55;
+    }
+
+    .programme .features li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 9px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--sage);
+    }
+
+    .programme .cta {
+        display: inline-block;
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 14.5px;
+        font-weight: 500;
+        color: #fff;
+        background: var(--blue);
+        text-decoration: none;
+        padding: 12px 22px;
+        border-radius: 2px;
+        margin-top: 8px;
+        transition: background 0.15s ease;
+    }
+
+    .programme .cta:hover {
+        background: #244FAD;
+    }
+
+    .pricing {
+        border-top: 1px solid var(--rule);
+        align-self: start;
+    }
+
+    .pricing .tier {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 16px;
+        padding: 18px 0;
+        border-bottom: 1px solid var(--rule);
+    }
+
+    .pricing .tier .label {
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 14.5px;
+        color: var(--ink-soft);
+        max-width: 28ch;
+    }
+
+    .pricing .tier .amount {
+        font-size: 18px;
+        font-weight: 500;
+        white-space: nowrap;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+        border-top: 1px solid var(--rule);
+        padding: 32px 48px 48px;
+        max-width: 1180px;
+        margin: 0 auto;
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 13.5px;
+        color: var(--ink-soft);
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 720px) {
+        nav {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 22px 24px;
+        }
+
+        nav .links {
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        header.hero {
+            padding: 56px 24px 44px;
+        }
+
+        header.hero h1 {
+            font-size: 32px;
+            max-width: none;
+        }
+
+        header.hero p {
+            font-size: 17px;
+        }
+
+        main {
+            padding: 0 24px;
+        }
+
+        .section-heading {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+            padding: 44px 0 22px;
+        }
+
+        .programme {
+            grid-template-columns: 1fr;
+            gap: 28px;
+            padding: 28px 24px;
+            margin-bottom: 24px;
+        }
+
+        .programme h3 {
+            font-size: 22px;
+        }
+
+        footer {
+            padding: 28px 24px 40px;
+            flex-direction: column;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        * {
+            transition: none !important;
+            animation: none !important;
+        }
+    }
 </style>
 </head>
-
 <body>
 
-<!-- NAVIGATION -->
 <nav>
-    <div class="left">
+    <a class="wordmark" href="index.html">Providence Mathematical Initiative</a>
+    <div class="links">
         <a href="about.html">About</a>
         <a href="matholym.html">Math Olympiad Training</a>
- <!--       <a href="course_page.html">Deep Learning Course</a> -->
-    </div>
-
-    <div class="logo">
-        <a href="index.html"><img src="logo_3.png" alt="Logo" width="15cm"></a>
-    </div>
-
-    <div class="right">
-        <a href="online_class_page.html">Online Class</a>
+        <a class="active" href="online_class_page.html">Online Class</a>
         <a href="contact_page.html">Research Contributors</a>
     </div>
 </nav>
 
-    
-<section class="hero">
+<header class="hero">
+    <p class="kicker">For undergraduate students</p>
+    <h1>Mathematics programmes.</h1>
+    <p>Structured, personal support in university-level mathematics — from one-on-one thesis consulting to small-group classes in pure, applied, and insurance mathematics.</p>
+</header>
 
-<h1>Mathematics Programmes</h1>
+<main>
 
-<p>
-Mathematics education designed for undergraduate students.
-</p>
+    <div class="section-heading">
+        <h2>Programmes</h2>
+        <span>Two ways to get support</span>
+    </div>
 
-</section>
+    <div class="programmes">
 
+        <div class="programme">
+            <div>
+                <h3>Final Project Consulting</h3>
+                <p class="lede">One-on-one mentoring for undergraduate mathematics students working on their final project or thesis.</p>
+                <ul class="features">
+                    <li>Online Zoom meetings, 90 minutes each.</li>
+                    <li>Guidance through the mathematical concepts behind your project.</li>
+                </ul>
+                <a class="cta" href="https://wa.me/628170474447" target="_blank" rel="noopener">Register on WhatsApp</a>
+            </div>
+            <div class="pricing">
+                <div class="tier">
+                    <span class="label">Basic — one meeting</span>
+                    <span class="amount">IDR 150,000</span>
+                </div>
+                <div class="tier">
+                    <span class="label">Bundle — five meetings, flexible scheduling</span>
+                    <span class="amount">IDR 400,000</span>
+                </div>
+            </div>
+        </div>
 
-<div class="container">
+        <div class="programme">
+            <div>
+                <h3>University Mathematics Group Classes</h3>
+                <p class="lede">Interactive small-group online classes covering university mathematics subjects: pure mathematics, applied mathematics, and insurance mathematics.</p>
+                <ul class="features">
+                    <li>One online Zoom meeting, 90 minutes each.</li>
+                    <li>Flexible scheduling.</li>
+                    <li>Topics may include calculus, linear algebra, real analysis, actuarial mathematics, numerical methods, and differential equations.</li>
+                </ul>
+                <a class="cta" href="https://wa.me/628170474447" target="_blank" rel="noopener">Register on WhatsApp</a>
+            </div>
+            <div class="pricing">
+                <div class="tier">
+                    <span class="label">Group class, up to 5 students — one meeting</span>
+                    <span class="amount">IDR 250,000</span>
+                </div>
+                <div class="tier">
+                    <span class="label">Private class — one meeting</span>
+                    <span class="amount">IDR 100,000</span>
+                </div>
+            </div>
+        </div>
 
-<!-- ====================================================== -->
+    </div>
 
-<div class="card">
+</main>
 
-<img src="final_project_example.jpg" alt="Final Project Consulting">
-
-<div class="content">
-
-<h2>Final Project Consulting</h2>
-
-<p>
-One-on-one mentoring for undergraduate mathematics students working on
-their final project or thesis.
-</p>
-
-<ul>
-
-<li>Online Zoom meetings (90 minutes each).</li>
-
-<li>Mathematical concepts guidance.</li>
-
-</ul>
-
-<div class="price">
-
-<li>Basic Option: 1 meeting only. (IDR 150,000)</li>
-<li>Bundled Option: 5 meetings, flexible scheduling. (IDR 400,000)</li>
-
-</div>
-
-<a class="button" href="https://wa.me/628170474447" target="_blank">Register</a>
-
-</div>
-
-</div>
-
-<!-- ====================================================== -->
-
-<div class="card">
-
-<img src="teaching_example.jpg" alt="University Mathematics Class">
-
-<div class="content">
-
-<h2>University Mathematics Group Classes</h2>
-
-<p>
-Interactive small-group online classes covering university mathematics
-subjects: Pure Mathematics, Applied Mathematics, and Insurance Mathematics.
-</p>
-
-<ul>
-
-<li>1 online Zoom meeting. (90 minutes each) </li>
-
-<li>Flexible scheduling.</li>
-
-<li>Topic may include: Calculus, Linear Algebra, Real Analysis, Actuarial Mathematics, Numerical Methods, Differential Equations, etc.</li>
-
-</ul>
-
-<div class="price">
-
-<li> Group class, max 5 students: 1 meeting. (IDR 250,000 per group) </li>
-<li> Private class: 1 meeting. (IDR 100,000) </li>
-    
-</div>
-
-<a class="button" href="https://wa.me/628170474447" target="_blank">Register</a>
-
-</div>
-
-</div>
-
-</div>
+<footer>
+    <span>Providence Mathematical Initiative</span>
+    <span>Proliferating mathematics</span>
+</footer>
 
 </body>
 </html>
